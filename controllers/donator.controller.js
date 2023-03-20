@@ -156,6 +156,8 @@ const deleteDonator = async (req, res) => {
   }
 };
 
+// create volunteer
+
 //export
 module.exports = {
   registerDonator,

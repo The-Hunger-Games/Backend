@@ -23,6 +23,10 @@ parentRouter.use("/ngo", ngoRouter);
 const inventoryRouter = require("./routes/inventory.routes");
 parentRouter.use("/inventory", inventoryRouter);
 
+// ------------- VOLUNTEER ROUTES ----------------- //
+const volunteerRouter = require("./routes/volunteer.routes");
+parentRouter.use("/volunteer", volunteerRouter);
+
 // ------------- NON-EXISTENT ROUTES ----------------- //
 parentRouter.all("*", (req, res) => {
   message(res, NOT_FOUND, "Route does not exist");
