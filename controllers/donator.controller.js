@@ -30,6 +30,8 @@ const registerDonator = async (req, res) => {
     const token = createToken({
       id: newDonator._id,
       email: newDonator.email,
+      latitude: newDonator.latitude,
+      longitude: newDonator.longitude,
     });
 
     // response
@@ -87,6 +89,8 @@ const loginDonator = async (req, res) => {
         const token = createToken({
           id: donator._id,
           email: donator.email,
+          latitude: donator.latitude,
+          longitude: donator.longitude,
         });
 
         // response
@@ -143,7 +147,9 @@ const updateDonator = async (req, res) => {
 const deleteDonator = async (req, res) => {
   // get id from req.donator.id and delete donator
   try {
-    const donator = await DonatorServices.deleteDonator(req.donator.id);
+    const donator = await DonatorServices.deleteDonator({
+      _id: req.donator.id,
+    });
     messageCustom(res, OK, "Donator deleted successfully", donator);
   } catch (err) {
     handleError(req, res, err);

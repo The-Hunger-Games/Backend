@@ -27,6 +27,11 @@ const donatorInventorySchema = new Schema({
     type: String,
     required: true,
   },
+  donator: {
+    type: Schema.Types.ObjectId,
+    ref: "Donator",
+    required: true,
+  },
   company: {
     type: String,
     required: true,
@@ -38,6 +43,7 @@ const donatorInventorySchema = new Schema({
   serialNumber: {
     type: String,
     required: true,
+    unique: true,
   },
   daysToExpire: {
     type: Number,
@@ -48,6 +54,11 @@ const donatorInventorySchema = new Schema({
 const ngoInventorySchema = new Schema({
   name: {
     type: String,
+    required: true,
+  },
+  NGO: {
+    type: Schema.Types.ObjectId,
+    ref: "NGO",
     required: true,
   },
   description: {
@@ -76,13 +87,10 @@ const ngoInventorySchema = new Schema({
   },
 });
 
-const DonatorInventory = mongoose.model(
-  "DonatorInventory",
-  donatorInventorySchema,
-);
-const NgoInventory = mongoose.model("NgoInventory", ngoInventorySchema);
+const Donator = mongoose.model("DonatorInventory", donatorInventorySchema);
+const NGO = mongoose.model("NgoInventory", ngoInventorySchema);
 
 module.exports = {
-  DonatorInventory,
-  NgoInventory,
+  Donator,
+  NGO,
 };

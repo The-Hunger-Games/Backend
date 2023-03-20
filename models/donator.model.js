@@ -41,6 +41,10 @@ const donatorSchema = new Schema({
     type: String,
     required: true,
   },
+  numDonated: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Donator", donatorSchema);

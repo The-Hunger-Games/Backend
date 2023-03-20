@@ -15,6 +15,14 @@ parentRouter.get("/", (req, res) => {
 const donatorRouter = require("./routes/donator.routes");
 parentRouter.use("/donator", donatorRouter);
 
+// ------------- NGO ROUTES ----------------- //
+const ngoRouter = require("./routes/ngo.routes");
+parentRouter.use("/ngo", ngoRouter);
+
+// ------------- INVENTORY ROUTES ----------------- //
+const inventoryRouter = require("./routes/inventory.routes");
+parentRouter.use("/inventory", inventoryRouter);
+
 // ------------- NON-EXISTENT ROUTES ----------------- //
 parentRouter.all("*", (req, res) => {
   message(res, NOT_FOUND, "Route does not exist");

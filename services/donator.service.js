@@ -21,13 +21,14 @@ const updateDonator = async (donatorId, donator) => {
   const updatedDonator = await Donator.updateMany(
     { _id: donatorId },
     { $set: donator },
+    { new: true },
   );
   return updatedDonator;
 };
 
 // donator delete service
-const deleteDonator = async (donatorId) => {
-  const deletedDonator = await Donator.deleteOne({ _id: donatorId });
+const deleteDonator = async (params) => {
+  const deletedDonator = await Donator.deleteOne(params);
   return deletedDonator;
 };
 
