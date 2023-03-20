@@ -2,7 +2,7 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 require("dotenv/config");
 
-const accessTokenSecret = process.env.accessTokenSecret;
+const accessTokenSecret = process.env.JWT_SECRET;
 
 exports.cryptoEncrypt = (data) => {
   return CryptoJS.AES.encrypt(

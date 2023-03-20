@@ -17,7 +17,7 @@ const donatorSchema = new Schema({
     required: true,
   },
   phoneCode: {
-    type: Number,
+    type: String,
     required: true,
   },
   phone: {
@@ -35,6 +35,7 @@ const donatorSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,

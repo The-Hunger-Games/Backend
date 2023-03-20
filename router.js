@@ -8,8 +8,12 @@ const parentRouter = express.Router();
 
 // ------------- GENERAL ROUTES ----------------- //
 parentRouter.get("/", (req, res) => {
-  message(res, OK, "Welcome to the Official Arcade API");
+  message(res, OK, "Welcome to the Official Hunger Games API");
 });
+
+// ------------- DONATOR ROUTES ----------------- //
+const donatorRouter = require("./routes/donator.routes");
+parentRouter.use("/donator", donatorRouter);
 
 // ------------- NON-EXISTENT ROUTES ----------------- //
 parentRouter.all("*", (req, res) => {
