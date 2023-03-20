@@ -50,6 +50,12 @@ const donatorSchema = new Schema({
     type: Number,
     default: 0,
   },
+  donators: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Donator",
+    },
+  ],
 });
 
-module.exports = mongoose.model("Donator", donatorSchema);
+module.exports = mongoose.model("NGO", donatorSchema);
